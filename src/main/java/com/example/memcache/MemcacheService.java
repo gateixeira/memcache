@@ -2,6 +2,7 @@ package com.example.memcache;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,10 @@ public class MemcacheService {
     public boolean delete(String repository, String objectId) {
         String key = generateKey(repository, objectId);
         return cache.delete(key);
+    }
+
+    public List<Map<String, String>> list(String repository) {
+        return cache.list(repository);
     }
 
     private String generateKey(String repository, String objectId) {

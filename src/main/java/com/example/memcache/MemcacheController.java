@@ -2,6 +2,7 @@ package com.example.memcache;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,12 @@ public class MemcacheController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         return new ResponseEntity<byte[]>(data.get(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/{repository}")
+    public ResponseEntity<List<Map<String, String>>> list(@PathVariable("repository") String repository) {
+        List<Map<String, String>> data = memcacheService.list(repository);
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PostMapping(value = "/{repository}", consumes = {MediaType.APPLICATION_OCTET_STREAM_VALUE})

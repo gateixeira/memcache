@@ -2,6 +2,7 @@ import React from 'react';
 import GetItem from './GetItem';
 import SetItem from './SetItem';
 import DeleteItem from './DeleteItem';
+import ListItems from './ListItems'; // Import the new component
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <GetItem />
         <SetItem />
         <DeleteItem />
+        <ListItems /> {/* Include the new component */}
       </div>
     </div>
   );
