@@ -13,7 +13,7 @@ function SetItem() {
       });
       setResponse(response.data);
     } catch (error) {
-      console.error('Error setting data', error);
+      console.error('Error setting data in repository: ' + repository + ' with data: ' + data + '. Error: ' + error.message);
       setResponse(null);
     }
   };
